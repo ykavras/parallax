@@ -18,43 +18,18 @@ Site çerez, analiz aracı ya da dış kaynaklı font kullanmıyor; gizlilik pol
 bunu söylüyor. Bağlantıların hepsi göreli, bu yüzden hem `github.io/parallax-legal/`
 altında hem özel bir alan adında çalışır.
 
-## 1. Yayından önce: boşlukları doldur
+## Şirket bilgileri
 
-Sayfalarda doldurulması gereken dört alan var:
+Sayfalarda şu değerler var; değişirse tüm `.html` dosyalarında birlikte değiştir:
 
-| Alan | Nerede | Örnek |
+| | Değer | Nerede |
 |---|---|---|
-| `{{COMPANY}}` | veri sorumlusu, koşullar, footer | Şirketin tam ticari unvanı |
-| `{{ADDRESS}}` | veri sorumlusu, koşullar (Apple'ın EULA şartı) | Tebligat adresi |
-| `{{CONTACT_EMAIL}}` | her sayfa (40 yer) | destek@… |
-| `{{AI_PROVIDER}}` | gizlilik politikası (EN + TR) | OpenAI, L.L.C. (USA) |
+| Unvan | Albert Medya Yazılım ve Dijital Yayıncılık Hizmetleri A.Ş. | veri sorumlusu, koşullar, footer |
+| Adres | Esentepe Mah. Keskin Kalem Sk. Arya Plaza Blok-17 İç Kapı: 2, Şişli / İstanbul | veri sorumlusu, koşullar (Apple'ın EULA şartı) |
+| E-posta | info@albertsoftware.com | her sayfa |
+| AI sağlayıcısı | OpenRouter, Inc. (ABD) | gizlilik politikası 04/05 ve 06. bölümler |
 
-Hepsini bir kerede değiştir (değerler tırnak içinde, her karakter serbest):
-
-```bash
-cd parallax-legal
-python3 - <<'EOF'
-from pathlib import Path
-values = {
-    "{{COMPANY}}": "…",
-    "{{ADDRESS}}": "…",
-    "{{CONTACT_EMAIL}}": "…",
-    "{{AI_PROVIDER}}": "OpenAI, L.L.C. (USA)",
-}
-values_tr = {"{{AI_PROVIDER}}": "OpenAI, L.L.C. (ABD)"}
-for f in Path(".").rglob("*.html"):
-    v = {**values, **(values_tr if f.parts[0] == "tr" else {})}
-    s = f.read_text(encoding="utf-8")
-    for k, val in v.items():
-        s = s.replace(k, val)
-    f.write_text(s, encoding="utf-8")
-EOF
-grep -rn "{{" --include=*.html . || echo "Hepsi dolu"
-```
-
-`../appstore/metadata/copyright.txt` içindeki `{{COMPANY}}`'yi de değiştir.
-
-## 2. GitHub Pages'e yayınla
+## GitHub Pages'e yayınla
 
 1. GitHub'da **public** bir repo aç: `parallax-legal` (ücretsiz planda Pages için public
    şart). README, lisans vb. ekleme, boş kalsın.
