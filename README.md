@@ -29,34 +29,21 @@ Sayfalarda şu değerler var; değişirse tüm `.html` dosyalarında birlikte de
 | E-posta | info@albertsoftware.com | her sayfa |
 | AI sağlayıcısı | OpenRouter, Inc. (ABD) | gizlilik politikası 04/05 ve 06. bölümler |
 
-## GitHub Pages'e yayınla
+## Yayın
 
-1. GitHub'da **public** bir repo aç: `parallax-legal` (ücretsiz planda Pages için public
-   şart). README, lisans vb. ekleme, boş kalsın.
-2. Bu klasörden gönder:
-
-   ```bash
-   cd parallax-legal
-   git init -b main
-   git add .
-   git commit -m "Parallax legal site"
-   git remote add origin https://github.com/omercsoylu/parallax-legal.git
-   git push -u origin main
-   ```
-
-3. Repo → **Settings → Pages** → Build and deployment → Source: **Deploy from a branch**
-   → Branch: **main**, klasör: **/ (root)** → Save.
-4. 1–2 dakika sonra adresler:
+Site `ykavras/parallax` reposundan GitHub Pages ile yayında (main dalı, kök klasör):
 
 | | English | Türkçe |
 |---|---|---|
-| Privacy | https://omercsoylu.github.io/parallax-legal/privacy/ | https://omercsoylu.github.io/parallax-legal/tr/privacy/ |
-| Terms | https://omercsoylu.github.io/parallax-legal/terms/ | https://omercsoylu.github.io/parallax-legal/tr/terms/ |
-| Support | https://omercsoylu.github.io/parallax-legal/support/ | https://omercsoylu.github.io/parallax-legal/tr/support/ |
-| Ana sayfa | https://omercsoylu.github.io/parallax-legal/ | https://omercsoylu.github.io/parallax-legal/tr/ |
+| Privacy | https://ykavras.github.io/parallax/privacy/ | https://ykavras.github.io/parallax/tr/privacy/ |
+| Terms | https://ykavras.github.io/parallax/terms/ | https://ykavras.github.io/parallax/tr/terms/ |
+| Support | https://ykavras.github.io/parallax/support/ | https://ykavras.github.io/parallax/tr/support/ |
+| Ana sayfa | https://ykavras.github.io/parallax/ | https://ykavras.github.io/parallax/tr/ |
 
-Repo adı ya da kullanıcı adı farklıysa sayfaların `<head>`'indeki `og:image` ve
-`hreflang` adreslerini ve `../appstore/metadata/*/…_url.txt` dosyalarını güncelle.
+Güncellemek için bu klasörün içeriğini (`.nojekyll` dahil) repo köküne kopyala, commit'le
+ve push'la; Pages 1–2 dakikada yeniler. Adres değişirse sayfaların `<head>`'indeki
+`og:image` ve `hreflang` adreslerini ve `../appstore/metadata/*/…_url.txt` dosyalarını
+güncelle.
 
 ## Düzenleme
 
